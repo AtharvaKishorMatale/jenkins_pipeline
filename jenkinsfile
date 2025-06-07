@@ -1,27 +1,23 @@
-pipeline
-{
+pipeline {
+    agent {
+        label 'Ansible'
+    }
 
-   agent {
-  label 'Ansible'
-}
+    tools {
+        maven 'maven'
+    }
 
-tools {
-  maven 'maven'
-}
-    stages{
-        stage('build')
-        {
+    stages {
+        stage('build') {
             steps {
-                sh "this is build stage"
+                sh 'echo "this is build stage"'  // Fixed this line too
             }
 
-            post {        //this will execute after the build is successful 
-             success {
-                 archiveArtifacts artifacts: '**/target/*.war'
-
-    // One or more steps need to be included within each condition's block.
-  }
-}
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
         }
-
-
+    }
+}
