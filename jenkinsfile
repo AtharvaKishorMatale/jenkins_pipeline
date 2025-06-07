@@ -4,6 +4,10 @@ pipeline
    agent {
   label 'Ansible'
 }
+
+tools {
+  maven 'maven'
+}
     stages{
         stage('build')
         {
