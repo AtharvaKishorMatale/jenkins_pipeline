@@ -21,14 +21,3 @@ pipeline
         }
 
 
-<<<<<<< HEAD
-=======
-        stage('deploy')
-        {
-            steps{
-                echo "this is deploy stage"
-            }
-        }
->>>>>>> aa04af76ca2cfda65ae140312959414306dae0db
-    }
-}
